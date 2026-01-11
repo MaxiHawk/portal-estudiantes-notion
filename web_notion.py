@@ -31,23 +31,19 @@ st.markdown("""
             font-family: 'Roboto', sans-serif;
         }
 
-        /* 2. OCULTAR ELEMENTOS DE STREAMLIT (ELIMINACIÓN TOTAL) */
+        /* 2. OCULTAR ELEMENTOS (ELIMINACIÓN TOTAL SIN ESPACIOS) */
+        #MainMenu {display: none !important;}
+        header {display: none !important;}
+        footer {display: none !important;}
+        [data-testid="stDecoration"] {display: none !important;}
+        .stAppDeployButton {display: none !important;}
+        [data-testid="stToolbar"] {display: none !important;}
+        [data-testid="stHeader"] {display: none !important;}
         
-        /* Ocultar menú hamburguesa superior derecha */
-        #MainMenu {visibility: hidden;}
+        /* Ocultar el botón inferior derecho "Manage App" (Para el dueño) */
+        .stApp > header {display: none !important;}
         
-        /* Ocultar la línea de colores superior (Decoration) */
-        [data-testid="stDecoration"] {display: none;}
-        
-        /* Ocultar el footer "Made with Streamlit" */
-        footer {visibility: hidden;}
-        
-        /* Ocultar la barra de herramientas y el botón de Deploy (NUEVO) */
-        .stAppDeployButton {display: none;}
-        [data-testid="stToolbar"] {display: none;}
-        [data-testid="stHeader"] {display: none;}
-        
-        /* 3. ESTILOS DE TU APP (Botones Rojos) */
+        /* 3. ESTILOS DE TU APP */
         .stButton>button {
             width: 100%;
             border-radius: 8px;
