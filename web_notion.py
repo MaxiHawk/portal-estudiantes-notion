@@ -22,7 +22,7 @@ headers = {
 
 
 st.set_page_config(page_title="Portal Académico", page_icon="🏫")
-# --- MAQUILLAJE VISUAL (CSS AGRESIVO) ---
+# --- MAQUILLAJE VISUAL (CSS AGRESIVO ACTUALIZADO) ---
 st.markdown("""
     <style>
         /* 1. TIPOGRAFÍA */
@@ -34,22 +34,20 @@ st.markdown("""
         /* 2. OCULTAR ELEMENTOS DE STREAMLIT (ELIMINACIÓN TOTAL) */
         
         /* Ocultar menú hamburguesa superior derecha */
-        #MainMenu {display: none !important;}
+        #MainMenu {visibility: hidden;}
         
-        /* Ocultar header (la línea de colores arriba) */
-        header {display: none !important;}
+        /* Ocultar la línea de colores superior (Decoration) */
+        [data-testid="stDecoration"] {display: none;}
         
-        /* Ocultar footer "Made with Streamlit" */
-        footer {display: none !important;}
+        /* Ocultar el footer "Made with Streamlit" */
+        footer {visibility: hidden;}
         
-        /* Ocultar la barra de herramientas flotante (El botón rojo) */
-        [data-testid="stToolbar"] {display: none !important;}
+        /* Ocultar la barra de herramientas y el botón de Deploy (NUEVO) */
+        .stAppDeployButton {display: none;}
+        [data-testid="stToolbar"] {display: none;}
+        [data-testid="stHeader"] {display: none;}
         
-        /* Ocultar decoraciones de despliegue */
-        [data-testid="stDecoration"] {display: none !important;}
-        [data-testid="stStatusWidget"] {display: none !important;}
-        
-        /* 3. ESTILOS DE TU APP */
+        /* 3. ESTILOS DE TU APP (Botones Rojos) */
         .stButton>button {
             width: 100%;
             border-radius: 8px;
