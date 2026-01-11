@@ -22,28 +22,40 @@ headers = {
 
 
 st.set_page_config(page_title="Portal Académico", page_icon="🏫")
-# --- MAQUILLAJE VISUAL (CSS AGRESIVO ACTUALIZADO) ---
+# --- MAQUILLAJE VISUAL (VERSIÓN FINAL) ---
 st.markdown("""
     <style>
-        /* 1. TIPOGRAFÍA */
+        /* 1. TIPOGRAFÍA GLOBAL */
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
         html, body, [class*="css"]  {
             font-family: 'Roboto', sans-serif;
         }
 
-        /* 2. OCULTAR ELEMENTOS (ELIMINACIÓN TOTAL SIN ESPACIOS) */
-        #MainMenu {display: none !important;}
-        header {display: none !important;}
-        footer {display: none !important;}
+        /* 2. ELIMINAR BARRAS BLANCAS (PADDING) */
+        /* Esto sube todo el contenido y quita el espacio blanco de arriba y abajo */
+        .block-container {
+            padding-top: 2rem !important;
+            padding-bottom: 1rem !important;
+        }
+
+        /* 3. OCULTAR ELEMENTOS DE STREAMLIT */
+        #MainMenu {visibility: hidden;}
+        header {visibility: hidden;}
+        
+        /* Intentar ocultar el footer de atribución */
+        footer {
+            visibility: hidden !important;
+            display: none !important;
+            height: 0px !important;
+        }
+        
+        /* Ocultar elementos específicos de la interfaz */
         [data-testid="stDecoration"] {display: none !important;}
-        .stAppDeployButton {display: none !important;}
+        [data-testid="stStatusWidget"] {display: none !important;}
         [data-testid="stToolbar"] {display: none !important;}
-        [data-testid="stHeader"] {display: none !important;}
+        .stAppDeployButton {display: none !important;}
         
-        /* Ocultar el botón inferior derecho "Manage App" (Para el dueño) */
-        .stApp > header {display: none !important;}
-        
-        /* 3. ESTILOS DE TU APP */
+        /* 4. ESTILOS DE TU APP (Botones) */
         .stButton>button {
             width: 100%;
             border-radius: 8px;
