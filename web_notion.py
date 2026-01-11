@@ -22,54 +22,48 @@ headers = {
 
 
 st.set_page_config(page_title="Portal Académico", page_icon="🏫")
-# --- INICIO DEL MAQUILLAJE (CSS) ---
+# --- MAQUILLAJE VISUAL (CSS AGRESIVO) ---
 st.markdown("""
-    <style> 
-            /* Forzar fondo oscuro si lo deseas (Opcional) */
-.stApp {
-    background-color: #0E1117; /* Negro/Gris muy oscuro */
-    color: #FAFAFA; /* Texto blanco */
-}
-        /* 1. Importamos una letra tecnológica (Roboto) */
+    <style>
+        /* 1. TIPOGRAFÍA */
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
-
-        /* 2. Aplicamos la letra a toda la app */
         html, body, [class*="css"]  {
             font-family: 'Roboto', sans-serif;
         }
 
-        /* 3. Limpieza: Ocultamos el menú de arriba a la derecha y el pie de página */
-        #MainMenu {visibility: hidden;}
-        footer {visibility: hidden;}
-        header {visibility: hidden;}
-
-        /* 4. Personalizamos los botones (El color rojo AngioMasters) */
+        /* 2. OCULTAR ELEMENTOS DE STREAMLIT (ELIMINACIÓN TOTAL) */
+        
+        /* Ocultar menú hamburguesa superior derecha */
+        #MainMenu {display: none !important;}
+        
+        /* Ocultar header (la línea de colores arriba) */
+        header {display: none !important;}
+        
+        /* Ocultar footer "Made with Streamlit" */
+        footer {display: none !important;}
+        
+        /* Ocultar la barra de herramientas flotante (El botón rojo) */
+        [data-testid="stToolbar"] {display: none !important;}
+        
+        /* Ocultar decoraciones de despliegue */
+        [data-testid="stDecoration"] {display: none !important;}
+        [data-testid="stStatusWidget"] {display: none !important;}
+        
+        /* 3. ESTILOS DE TU APP */
         .stButton>button {
             width: 100%;
-            border-radius: 8px; /* Bordes un poco redondeados */
-            background-color: #990000; /* ROJO SANGRE OSCURO (Cámbialo si quieres) */
+            border-radius: 8px;
+            background-color: #990000; 
             color: white;
             border: none;
             padding: 10px 24px;
             font-weight: bold;
-            transition: all 0.3s ease; /* Efecto suave al pasar el mouse */
         }
-        
-        /* Efecto cuando pasas el mouse por encima del botón */
         .stButton>button:hover {
-            background-color: #CC0000; /* Un rojo más brillante */
-            transform: scale(1.02); /* Crece un poquito */
+            background-color: #CC0000;
         }
-
-        /* 5. Personalizamos los globos de éxito (Background de los mensajes) */
-        .stAlert {
-            background-color: #f0f2f6;
-            border-left-color: #990000; /* Borde rojo */
-        }
-
     </style>
 """, unsafe_allow_html=True)
-# --- FIN DEL MAQUILLAJE ---
 # --- CABECERA PERSONALIZADA ---
 # Creamos dos columnas: una pequeña para el logo (1 parte) y una grande para el texto (5 partes)
 col_logo, col_texto = st.columns([1, 5])
