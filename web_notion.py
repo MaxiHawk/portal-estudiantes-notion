@@ -22,7 +22,70 @@ headers = {
 
 
 st.set_page_config(page_title="Portal Académico", page_icon="🏫")
-st.title("🏫 Portal de Estudiantes")
+# --- INICIO DEL MAQUILLAJE (CSS) ---
+st.markdown("""
+    <style> 
+            /* Forzar fondo oscuro si lo deseas (Opcional) */
+.stApp {
+    background-color: #0E1117; /* Negro/Gris muy oscuro */
+    color: #FAFAFA; /* Texto blanco */
+}
+        /* 1. Importamos una letra tecnológica (Roboto) */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+
+        /* 2. Aplicamos la letra a toda la app */
+        html, body, [class*="css"]  {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* 3. Limpieza: Ocultamos el menú de arriba a la derecha y el pie de página */
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+
+        /* 4. Personalizamos los botones (El color rojo AngioMasters) */
+        .stButton>button {
+            width: 100%;
+            border-radius: 8px; /* Bordes un poco redondeados */
+            background-color: #990000; /* ROJO SANGRE OSCURO (Cámbialo si quieres) */
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            font-weight: bold;
+            transition: all 0.3s ease; /* Efecto suave al pasar el mouse */
+        }
+        
+        /* Efecto cuando pasas el mouse por encima del botón */
+        .stButton>button:hover {
+            background-color: #CC0000; /* Un rojo más brillante */
+            transform: scale(1.02); /* Crece un poquito */
+        }
+
+        /* 5. Personalizamos los globos de éxito (Background de los mensajes) */
+        .stAlert {
+            background-color: #f0f2f6;
+            border-left-color: #990000; /* Borde rojo */
+        }
+
+    </style>
+""", unsafe_allow_html=True)
+# --- FIN DEL MAQUILLAJE ---
+# --- CABECERA PERSONALIZADA ---
+# Creamos dos columnas: una pequeña para el logo (1 parte) y una grande para el texto (5 partes)
+col_logo, col_texto = st.columns([1, 5])
+
+with col_logo:
+    # Intenta cargar la imagen, si no está, pone un emoji
+    try:
+        st.image("logo_angio.png", width=100) 
+    except:
+        st.markdown("# 🫀") # Emoji de respaldo si falla la imagen
+
+with col_texto:
+    st.markdown("# Universo AngioMasters")
+    st.markdown("### Plataforma de Gestión Académica")
+
+st.divider() # Una línea divisoria elegante
 
 # --- LOGIN (Barra lateral) ---
 with st.sidebar:
